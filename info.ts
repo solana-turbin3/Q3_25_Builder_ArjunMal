@@ -1,12 +1,7 @@
-import { Keypair, Connection, Commitment } from "@solana/web3.js";
-import { createMint } from '@solana/spl-token';
-import wallet from "../turbin3-wallet.json"
+// commitment level 
+// we have processed confirmed finalized recent single singleGossip root max
 
-// Import our keypair from the wallet file
-const keypair = Keypair.fromSecretKey(new Uint8Array(wallet));
-
-//Create a Solana devnet connection
-const commitment: Commitment = "confirmed";
+// processed is a little less reliable
 // there are multiple commitment levels like finalized which provide more reliable guarantee that the transaction is confirmed by the block
 // and extremly less likely that the transaction will be rolled back, while weaker commitment levels like processed give feedback faster but offer less certain
 // confimations
@@ -18,27 +13,29 @@ const commitment: Commitment = "confirmed";
 
 // Processed -> Confirmed -> Finalized
 
-const connection = new Connection("https://devnet.helius-rpc.com/?api-key=71d05d9f-5d94-4548-9137-c6c3d9f69b3e", commitment);
 
-(async () => {
-    try {
-        const mint = await createMint(connection, keypair, keypair.publicKey, null, 6)
-        console.log(`Mint address: ${mint.toBase58()}`)
-    } catch(error) {
-        console.log(`Oops, something went wrong: ${error}`)
-    }
-})()
-
-// createMint() creates a new SPL token mint account
-// here connection (devnet), payer is us, mintAuthority who can mint new tokens
-// decimals -> 6 means 1 token = 1000000 base units
+// multiple parameters in createMint
+// umi metaplex -> steps -> umi connection, createMetadataAccountV3InstructionArgs, DataV2Args
 
 
-// after createMint we get mintAddress which is the identifier of new token
-// no tokens just the definition of the token
-// now we need to create token account for the user and mint tokens to that account
+// token info solscan.io read the json
+// ata = await getOrCreateAssociatedTokenAccount()
+// mint tx = mintTo(diff parameters)
 
-// next step is like 
-// const token = new Token(....)
-// const tokenAccount = await token.getOrCreateAssociatedAccInfo(pubkey)
-// then token.mintTo....
+// bpfloader?
+// When you deploy a program (e.g., your smart contract written in Rust)
+// The Solana system program responsible for deploying smart contracts (aka programs) onto the blockchain.
+// BPF = Berkeley Packet Filter, a virtual machine format that Solana uses for compiled programs (from Rust/C).
+// (.so files)
+
+
+// token account vs associated token account
+// An account that stores tokens of a mint | A special, derived token account (1 per mint-wallet pair)
+// createAccount() | getOrCreateAssociatedTokenAccount()
+// can be derived using pubkey | derived using pubkey + mint address
+// many | only one exists per wallet, mint
+
+// To perform token transfer:
+//  - Get mint
+//  - Get or create ATA for sender/recipient
+//  - Transfer token from sender ATA to recipient ATA

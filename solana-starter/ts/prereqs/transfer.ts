@@ -1,10 +1,10 @@
 import { Transaction, SystemProgram, Connection, Keypair, LAMPORTS_PER_SOL, sendAndConfirmTransaction, PublicKey } from "@solana/web3.js"
-import wallet from "../dev-wallet.json"
+import wallet from "./dev-wallet.json"
 
 // Import our dev wallet keypair from the wallet file
 const from = Keypair.fromSecretKey(new Uint8Array(wallet));
 // Define our WBA public key
-const to = new PublicKey("CJWgroZLX9YCLgNAt5UGSrs5diRzdT97vSoziKSn9UQt");
+const to = new PublicKey("GLtaTaYiTQrgz411iPJD79rsoee59HhEy18rtRdrhEUJ");
 
 //Create a Solana devnet connection
 const connection = new Connection("https://api.devnet.solana.com", "confirmed");

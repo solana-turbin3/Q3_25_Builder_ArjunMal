@@ -1,0 +1,15 @@
+{
+    "name": "ATG",
+    "symbol": "ATG",
+    "description": "ATG token.",
+    "image": "https://gold-tremendous-echidna-323.mypinata.cloud/ipfs/bafkreibcttk3lj74s467dpkiolpmtebnelpugffkgeq4ukvlgn2yvo7bcu",
+    "properties": {
+      "files": [
+        {
+          "uri": "https://gold-tremendous-echidna-323.mypinata.cloud/ipfs/bafkreibcttk3lj74s467dpkiolpmtebnelpugffkgeq4ukvlgn2yvo7bcu",
+          "type": "image/jpeg"
+        }
+      ],
+      "category": "image"
+    }
+  }
