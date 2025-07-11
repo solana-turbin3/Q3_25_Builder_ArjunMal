@@ -1,6 +1,21 @@
 // AMM (Automated Market Maker)
 // Smart contract that allows decentralized trading of tokens without a traditional order book
 
+/** AMM purpose */
+// great for new tokens without needing tons of liquidity
+// games and lower liquidity tokens
+
+
+/** LP Token */
+// user required to deposit two tokens (X and Y)
+// received the LP token represents their portion of the pool nominal not notional
+
+
+/** What's happening behind */
+// When someone sells token A, AMM buys those tokens and gives them Token B
+// this lowers token B and increases the pricing
+
+
 /** Key terms in code */
 // Liquidity Pool: A smart contract holding 2 tokens (e.g., SOL/USDC)
 // Liquidity Providers (LP): Users who deposit tokens into the pool
@@ -55,7 +70,6 @@
 // mint_lp: LP token mint (PDA)
 // user_x_ata / user_y_ata: User's token accounts for deposits/swaps
 // user_lp_ata: User's LP token account
-
 
 
 /** Dev Notes */

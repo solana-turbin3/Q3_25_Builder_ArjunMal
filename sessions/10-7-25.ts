@@ -1,0 +1,2 @@
+// Messages
+// also if anyone is ever wondering what Obric, SolFi, and ZeroFi is if they look at their jupiter routing txs, they are private AMMs that actively manage their positions. you'll see that they've been capturing the majority of txs recently -- and they have no frontend.

@@ -1,3 +1,5 @@
+#![allow(unexpected_cfgs)]
+
 use crate::error::AmmError;
 use crate::state::Config;
 use anchor_lang::prelude::*;

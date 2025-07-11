@@ -1,3 +1,5 @@
+#![allow(unexpected_cfgs)]
+
 use crate::error::AmmError;
 use crate::state::Config;
 use anchor_lang::prelude::*;
@@ -125,6 +127,10 @@ impl<'info> Deposit<'info> {
         let cpi_context = CpiContext::new(cpi_program, cpi_accounts);
         transfer(cpi_context, amount)?;
         Ok(())
+
+        // here we are not having new with signer
+        // because it is getting inherited from the transaction unlike if we need to sign it by program
+        // we need to sign it so we require signer seeds
     }
 
     pub fn mint_lp_tokens(&mut self, amount: u64) -> Result<()> {
